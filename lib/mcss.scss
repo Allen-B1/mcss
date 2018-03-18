@@ -179,7 +179,7 @@ $mcss-accent: #f50057;
         background: #CCCCCC;
     }
 
-    &.accent {
+    &.mcss-accent {
 	    color: $mcss-accent;
 	    color: var(--mcss-accent, $mcss-accent);
     }
@@ -204,7 +204,7 @@ $mcss-accent: #f50057;
         @include z-height(8);
     }
 
-    &.accent {
+    &.mcss-accent {
 	    background: $mcss-accent;
 	    background: var(--mcss-accent, $mcss-accent);
     }
