@@ -1,8 +1,8 @@
 /* Copyright (c) Allen Bao; Licensed under the GNU LGPL */
 
 /* Colors */
-$mcss-primary: #ffc107;
-$mcss-primary-dark: #ffa000; 
+$mcss-primary: #2196F3;
+$mcss-primary-dark: #1976D2; 
 $mcss-accent: #f50057;
 
 @font-face {
@@ -23,10 +23,8 @@ $mcss-accent: #f50057;
 	cursor: default;
 }
 * {-webkit-tap-highlight-color: rgba(0,0,0,0); }
-body {
+.mcss-body {
     padding:0; margin: 0;
-}
-body, input, textarea {
 	font-family: 'Roboto', 'Noto', sans-serif;
 	font-size: 13px;
 	color:rgba(0,0,0,0.87);
@@ -34,6 +32,7 @@ body, input, textarea {
 	@include no-select; }
 
 .mcss-toolbar {
+    font-size: 0;
 	background: $mcss-primary;
 	background: var(--mcss-primary, $mcss-primary);
 	@include no-select;
@@ -45,7 +44,6 @@ body, input, textarea {
         color: #FFF;
         vertical-align: middle;
     }
-
 	.mcss-toolbar--title {
         @extend .mcss-toolbar--item;
         @extend .mcss-type-title;
@@ -58,6 +56,7 @@ body, input, textarea {
         font-size: 24px;
         text-decoration: none;
         font-family: 'Material Icons';
+        line-height: 24px;
 	}
 	.mcss-toolbar--icon-end {
         @extend .mcss-toolbar--icon;
@@ -130,10 +129,6 @@ body, input, textarea {
 	background: #FFF;
 	@include z-height(2);
 	border-radius: 2px;
-	&:active {
-		@include z-height(8);
-		position: relative;
-	}
 	transition: all 0.5s;
 	display: inline-block;
 }
@@ -145,4 +140,76 @@ body, input, textarea {
 	-webkit-user-select: text;
 	-moz-user-select: text;
 	-ms-user-select: text;
+}
+
+.mcss-button {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: 2px;
+    text-align: center;
+    padding: 0 16px;
+    line-height: 36px;
+    height: 36px;
+    outline:0;
+    cursor: pointer;
+    text-decoration: none;
+    min-width: 88px;
+    &::-moz-focus-inner {
+        border: 0;
+    }
+}
+
+.mcss-button-flat {
+    @extend .mcss-button;
+	color: $mcss-primary;
+	color: var(--mcss-primary, $mcss-primary);
+
+    display: inline-block;
+
+    &:hover, &:focus {
+        background: rgba(153,153,153,0.2) !important;
+    }
+    &:active {
+        background: rgba(153,153,153,0.4) !important;
+    }
+
+    .dark & {
+        background: #CCCCCC;
+    }
+
+    &.accent {
+	    color: $mcss-accent;
+	    color: var(--mcss-accent, $mcss-accent);
+    }
+}
+
+.mcss-button-raised {
+    @extend .mcss-button;
+
+	background: $mcss-primary;
+	background: var(--mcss-primary, $mcss-primary);
+    color: #FFF;
+
+    &:hover {
+        @include z-height(2);
+    }
+    &:focus {
+        @extend :hover;
+        filter: brightness(88%);
+    }    
+    &:active {
+        filter: none;
+        @include z-height(8);
+    }
+
+    &.accent {
+	    background: $mcss-accent;
+	    background: var(--mcss-accent, $mcss-accent);
+    }
+}
+
+.mcss-section {
+    padding: 16px;
 }
