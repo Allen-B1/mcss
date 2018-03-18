@@ -9,12 +9,7 @@ $mcss-accent: #f50057;
 	font-family: 'Material Icons';
 	font-style: normal;
 	font-weight: 400;
-	src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
-	src: local('Material Icons'),
-		local('MaterialIcons-Regular'),
-		url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
-		url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
-		url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+    src: url(https://fonts.gstatic.com/s/materialicons/v36/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
 }
 
 @mixin z-height($dp) {
@@ -28,6 +23,9 @@ $mcss-accent: #f50057;
 	cursor: default;
 }
 * {-webkit-tap-highlight-color: rgba(0,0,0,0); }
+body {
+    padding:0; margin: 0;
+}
 body, input, textarea {
 	font-family: 'Roboto', 'Noto', sans-serif;
 	font-size: 13px;
@@ -50,16 +48,19 @@ body, input, textarea {
 
 	.mcss-toolbar--title {
         @extend .mcss-toolbar--item;
+        @extend .mcss-type-title;
         font-size: 20px;
         font-weight: 500;
         @include no-select;
 	}
     .mcss-toolbar--icon {
         @extend .mcss-toolbar--item;
+        font-size: 24px;
         text-decoration: none;
+        font-family: 'Material Icons';
 	}
 	.mcss-toolbar--icon-end {
-        @extend .mcss-toolbar--item;
+        @extend .mcss-toolbar--icon;
         float: right;
 	}
 }
@@ -108,7 +109,8 @@ body, input, textarea {
 	font-size: 16px;
 	color: rgba(0,0,0,0.54); }
 .mcss-type-caption {
-	font-size: 13px; }
+	font-size: 12px;
+    font-weight: bold; }
 
 .mcss-text-1 {color: rgba(0,0,0,0.87)}
 .mcss-text-2 {color: rgba(0,0,0,0.54)}
