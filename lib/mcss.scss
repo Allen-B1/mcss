@@ -28,8 +28,7 @@ $mcss-accent: #f50057;
 	font-family: 'Roboto', 'Noto', sans-serif;
 	font-size: 13px;
 	color:rgba(0,0,0,0.87);
-	background: #FAFAFA;
-	@include no-select; }
+	background: #FAFAFA; }
 
 .mcss-toolbar {
     font-size: 0;
@@ -119,18 +118,9 @@ $mcss-accent: #f50057;
 	body {
 		font-size: 14px;
 	}
-	[data-type--subheading] {
+	.mcss-type-subtitle {
 		font-size: 17px;
 	}
-}
-
-.mcss-card {
-	padding: 8px;
-	background: #FFF;
-	@include z-height(2);
-	border-radius: 2px;
-	transition: all 0.5s;
-	display: inline-block;
 }
 
 .mcss-text {
@@ -197,7 +187,6 @@ $mcss-accent: #f50057;
     }
     &:focus {
         @extend :hover;
-        filter: brightness(88%);
     }    
     &:active {
         filter: none;
@@ -212,4 +201,14 @@ $mcss-accent: #f50057;
 
 .mcss-section {
     padding: 16px;
+}
+
+
+.mcss-card {
+	padding: 8px;
+	background: #FFF;
+	@include z-height(2);
+	border-radius: 2px;
+	transition: all 0.5s;
+	display: inline-block;
 }
