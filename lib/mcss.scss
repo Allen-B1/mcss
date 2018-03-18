@@ -3,6 +3,7 @@
 /* Colors */
 $mcss-primary: #ffc107;
 $mcss-primary-dark: #ffa000; 
+$mcss-accent: #f50057;
 
 @font-face {
 	font-family: 'Material Icons';
@@ -34,73 +35,84 @@ body, input, textarea {
 	background: #FAFAFA;
 	@include no-select; }
 
-[data-app-bar] {
-	min-height: 56px;
+.mcss-toolbar {
 	background: $mcss-primary;
 	background: var(--mcss-primary, $mcss-primary);
+	@include no-select;
+	color: #FFF;
+    .mcss-toolbar--item {
+        padding: 16px;
+        margin: 0;
+        display: inline-block;
+        color: #FFF;
+        vertical-align: middle;
+    }
+
+	.mcss-toolbar--title {
+        @extend .mcss-toolbar--item;
+        font-size: 20px;
+        font-weight: 500;
+        @include no-select;
+	}
+    .mcss-toolbar--icon {
+        @extend .mcss-toolbar--item;
+        text-decoration: none;
+	}
+	.mcss-toolbar--icon-end {
+        @extend .mcss-toolbar--item;
+        float: right;
+	}
+}
+
+.mcss-toolbar-height {
+	height: 56px;
+}
+
+.mcss-appbar {
+    @extend .mcss-toolbar;
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	@include z-height(4);
-	@include no-select;
-	color: #FFF;
-	[data-type--title] {
-		vertical-align: middle;
-		padding: (36px / 2) 0;
-		display: inline-block;
-		@include no-select;
-		margin-left: 72px;
-	}
-	[data-icon] {
-		padding: (32px / 2) 16px;
-		vertical-align: middle;
-	}
-	[data-icon--left] {
-		position: absolute;
-		left: 0;
-	}
 }
 
-[data-app-bar--height] {
-	height: 56px;
-}
-
-
-[data-menu-icon], [data-icon] {
+.mcss-icon {
 	display: inline-block;
 	font-size: 24px;
+    font-family: 'Material Icons';
 	cursor: pointer;
 }
-[data-menu-icon] {
+.mcss-icon-menu {
+    @extend .mcss-icon;
 	&::before {
 		content: "\2630";
 	}
 }
 
-[data-type--display-4] {
+.mcss-type-display-4 {
 	font-family: "Roboto Light", "Roboto", sans-serif;
 	font-size: 112px; }
-[data-type--display-3] {
+.mcss-type-display-3 {
 	font-size: 56px; }
-[data-type--display-2] {
+.mcss-type-display-2 {
 	font-size: 45px; }
-[data-type--display-1] {
+.mcss-type-display-1 {
 	font-size: 34px; }
-[data-type--headline] {
+.mcss-type-headline {
 	font-size: 24px; }
-[data-type--title] {
+.mcss-type-title {
 	font-size: 20px;
 	font-weight: 500; }
-[data-type--subtitle] {
+.mcss-type-subtitle {
 	font-size: 16px;
 	color: rgba(0,0,0,0.54); }
-[data-type--caption] {
+.mcss-type-caption {
 	font-size: 13px; }
 
-[data-type--text-1] {color: rgba(0,0,0,0.87)}
-[data-type--text-2] {color: rgba(0,0,0,0.54)}
-[data-type--text-3] {color: rgba(0,0,0,0.38)}
+.mcss-text-1 {color: rgba(0,0,0,0.87)}
+.mcss-text-2 {color: rgba(0,0,0,0.54)}
+.mcss-text-3 {color: rgba(0,0,0,0.38)}
 
 @media (max-width:720px) {
 	body {
@@ -111,7 +123,7 @@ body, input, textarea {
 	}
 }
 
-[data-card] {
+.mcss-card {
 	padding: 8px;
 	background: #FFF;
 	@include z-height(2);
@@ -124,7 +136,7 @@ body, input, textarea {
 	display: inline-block;
 }
 
-[data-text] {
+.mcss-text {
 	cursor: text;
 	background: transparent;
 	user-select: text;
